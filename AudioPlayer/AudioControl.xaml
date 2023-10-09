@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="AudioPlayer.AudioControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AudioPlayer"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="400">
+
+    <Grid x:Name="Grid_Main">
+        <Grid.Background>
+            <SolidColorBrush Color="Gray" Opacity="0.1"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="5,5,0,0"/>
+                    <Setter Property="TextWrapping" Value="Wrap"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock x:Name="TextBlock_Title" Text="Title" FontSize="28"/>
+            <TextBlock x:Name="TextBlock_Artist" Text="Artist"/>
+            <TextBlock x:Name="TextBlock_Album" Text="Album"/>
+            <TextBlock x:Name="TextBlock_Genre" Text="Genre" FontSize="14"/>
+            <TextBlock x:Name="TextBlock_Year" Text="Year" FontSize="14"/>
+
+        </StackPanel>
+        <Image x:Name="AlbumCover" VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,54 @@
+﻿<Window x:Class="AudioPlayer.TagEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AudioPlayer"
+        mc:Ignorable="d"
+        Title="Edit tags" Height="500" Width="300">
+    <DockPanel x:Name="DockPanel_TextFields">
+
+        <StackPanel x:Name="SP_Buttons" Height="40" DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="Save" Content="Save" Margin="0,5,5,5" Padding="5" Click="Save_Click"/>
+            <Button x:Name="Cancel" Content="Cancel" Margin="0,5,5,5" Padding="5" Click="Cancel_Click"/>
+        </StackPanel>
+
+        <Border BorderThickness="1" BorderBrush="Gray" Margin="4">
+        <StackPanel x:Name="SP_Fields" Orientation="Vertical">
+            
+            <StackPanel.Resources>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Orientation" Value="Vertical"/>
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="Padding" Value="0, 5, 5, 5"/>
+                </Style>
+            </StackPanel.Resources>
+            
+            <StackPanel>
+                <Label Content="Title"/>
+                <TextBox x:Name="TB_Title"/>
+            </StackPanel>
+            
+            <StackPanel>
+                <Label Content="Artist"/>
+                <TextBox x:Name="TB_Artist"/>
+            </StackPanel>
+            
+            <StackPanel>
+                <Label Content="Album"/>
+                <TextBox x:Name="TB_Album"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Year"/>
+                <TextBox x:Name="TB_Year"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Genre"/>
+                <TextBox x:Name="TB_Genre"/>
+            </StackPanel>
+        </StackPanel>
+        </Border>
+    </DockPanel>
+</Window>

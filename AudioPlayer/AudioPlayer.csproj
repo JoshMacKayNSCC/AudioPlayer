@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="media-play.png" />
+    <None Remove="Resources\background.png" />
+    <None Remove="Resources\media-play.png" />
+    <None Remove="Resources\muted.png" />
+    <None Remove="Resources\pause-icon.png" />
+    <None Remove="Resources\stop-icon.png" />
+    <None Remove="Resources\unmuted.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="2.88.6" />
+    <PackageReference Include="SkiaSharp.Views" Version="2.88.6" />
+    <PackageReference Include="taglib-sharp-netstandard2.0" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="media-play.png" />
+    <Resource Include="Resources\background.png" />
+    <Resource Include="Resources\media-play.png" />
+    <Resource Include="Resources\muted.png" />
+    <Resource Include="Resources\pause-icon.png" />
+    <Resource Include="Resources\stop-icon.png" />
+    <Resource Include="Resources\unmuted.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
