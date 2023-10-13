@@ -36,10 +36,8 @@ namespace AudioPlayer
         private MediaPlayer songPlayer = new MediaPlayer();
         private bool isPlaying = false;
         private bool seekHeld = false;
-        private string filepath = string.Empty;
         private string tempFilepath = string.Empty;
         private DispatcherTimer posTimer;
-        private bool mediaOpened = false; // Used to prevent a specific crash.
 
         public MainWindow()
         {
@@ -158,7 +156,6 @@ namespace AudioPlayer
             // Even putting it after .Play() breaks. It can play the song, but doesn't know how long it is because it hasn't been opened yet? What???
             // Based this solution on https://stackoverflow.com/questions/43803539/how-to-properly-wait-for-mediaplayer-to-open
             TB_Duration.Text = songPlayer.NaturalDuration.TimeSpan.ToString(@"hh\:mm\:ss");
-            mediaOpened = true;
             posTimer.IsEnabled = true;
         }
 
@@ -200,7 +197,6 @@ namespace AudioPlayer
             songPlayer.Stop();
             songPlayer.Close();
             isPlaying = false;
-            mediaOpened = false;
             NowPlaying.Children.Clear();
             try
             {
@@ -250,7 +246,7 @@ namespace AudioPlayer
                 return;
             }
 
-            AudioControl openAudio = new AudioControl(filepath); // This reads from the source file, but doesn't lock it.
+            AudioControl openAudio = new AudioControl(openFile.FileName); // This reads from the source file, but doesn't lock it.
             NowPlaying.Children.Add(openAudio);
 
             songPlayer.MediaOpened += MediaPlayer_MediaOpened;
